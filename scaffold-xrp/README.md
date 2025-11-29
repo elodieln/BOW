@@ -21,20 +21,19 @@ A Next.js-based development stack for building decentralized applications on XRP
 
 ### Installation
 
-\`\`\`bash
-
+```bash
 # Install dependencies
 pnpm install
 
 # Start the development server
 pnpm dev
-\`\`\`
+```
 
 The app will be available at [http://localhost:3000](http://localhost:3000)
 
 ## Project Structure
 
-\`\`\`
+```
 scaffold-xrp/
 ├── apps/
 │   └── web/                 # Next.js application
@@ -44,7 +43,7 @@ scaffold-xrp/
 ├── package.json
 ├── pnpm-workspace.yaml
 └── turbo.json
-\`\`\`
+```
 
 ## Usage
 
@@ -64,22 +63,22 @@ scaffold-xrp/
 
 ### Available Commands
 
-\`\`\`bash
+```bash
 pnpm dev          # Start development server
 pnpm build        # Build all packages
 pnpm lint         # Lint all packages
 pnpm format       # Format code with Prettier
 pnpm clean        # Clean build artifacts
-\`\`\`
+```
 
 ### Environment Variables
 
 Create a `.env.local` file in `apps/web/`:
 
-\`\`\`env
+```env
 # Optional: Configure default network
 NEXT_PUBLIC_DEFAULT_NETWORK=alphanet
-\`\`\`
+```
 
 ## Networks
 
