@@ -116,9 +116,9 @@ And 8 amazing volunteers !
 #### Slides
 
 
-[ECE Hack4Good Opening Ceremony](./pdf/tmp.pdf)
+[ECE Hack4Good Opening Ceremony](./pdf/(EXT) ECE Hack4Good Opening Ceremony.pdf)
 
-[ECE Hack4Good Workshop 1](./pdf/tmp.pdf)
+[ECE Hack4Good Workshop 1](./pdf/(EXT) ECE Hack4Good Workshop I.pdf)
 
 #### Wifi password
 
