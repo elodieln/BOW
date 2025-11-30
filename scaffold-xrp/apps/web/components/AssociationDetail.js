@@ -20,6 +20,7 @@ export default function AssociationDetail({ associationId }) {
   const handleDonationSuccess = (amountAdded) => {
     console.log("Mise à jour du total : +", amountAdded);
     setTotalRaised((prev) => prev + Number(amountAdded));
+    console.log("Nouveau total après don :", totalRaised + Number(amountAdded));
   };
 
   useEffect(() => {
@@ -36,7 +37,7 @@ export default function AssociationDetail({ associationId }) {
         
         // CORRECTION 3 : Mettre à jour le state du total une fois les données reçues
         // Assurez-vous que votre API renvoie bien 'totalFundsReceived' ou 'totalRaised'
-        setTotalRaised(data.totalFundsReceived || data.totalRaised || 0);
+        setTotalRaised(data.totalFundsReceived || 0);
         
       } catch (e) {
         console.error("Failed to load association detail:", e);
@@ -85,7 +86,7 @@ export default function AssociationDetail({ associationId }) {
             <p className="text-xs text-gray-500 font-bold">Total Donné</p>
             {/* CORRECTION 4 : Afficher la variable d'état dynamique 'totalRaised', pas la donnée statique */}
             <p className="text-3xl font-bold text-green-600">
-              {totalRaised.toFixed(2)} 
+              {totalRaised} 
             </p>
             <p className="text-xs text-gray-500">XRP</p>
           </div>

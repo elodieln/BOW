@@ -12,6 +12,7 @@ export function DonationForm({ associationId, associationQuota, receivingAddress
   const [amount, setAmount] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [result, setResult] = useState(null);
+  const [onDonationSuccess, setOnDonationSuccess] = useState(null);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -67,12 +68,14 @@ export function DonationForm({ associationId, associationQuota, receivingAddress
             associationId,
             nftId,
             amount: numeric,
-            donorAddress: accountInfo.address,
+            donorAddress: accountInfo?.address,
             txHash: txResult?.hash || null,
             destination: destination, // La variable définie plus haut (receivingAddress)
             type: 'Payment',
           }),
+          
         });
+        console.log("🔍 DEBUG PAYLOAD:", persist);
 
         const persistJson = await persist.json();
         if (persist.ok) {
