@@ -69,10 +69,23 @@ export function DonationForm({ associationId, associationQuota, receivingAddress
             amount: numeric,
             donorAddress: accountInfo.address,
             txHash: txResult?.hash || null,
+            destination: destination, // La variable définie plus haut (receivingAddress)
+            type: 'Payment',
           }),
         });
 
         const persistJson = await persist.json();
+        if (persist.ok) {
+            setResult({ success: true, persist: persistJson, txResult });
+            
+            // C'est ici qu'on déclenche la mise à jour du parent
+            if (onDonationSuccess) {
+                onDonationSuccess(numeric); // On renvoie le montant donné
+            }
+        } else {
+            // Gestion explicite si l'API renvoie une erreur (ex: 400 ou 500)
+            throw new Error(persistJson.error || "Erreur lors de l'enregistrement");
+        }
         setResult({ success: true, persist: persistJson, txResult });
       } catch (persistErr) {
         setResult({ success: false, error: persistErr.message });
